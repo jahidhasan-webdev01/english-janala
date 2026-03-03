@@ -30,6 +30,7 @@ const showLessons = (lessons) => {
 
 const getLessonWords = async (id) => {
     isLoading(true);
+
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     const result = await fetch(url);
     const data = await result.json();
@@ -41,18 +42,11 @@ const getLessonWords = async (id) => {
 
     if (data?.data.length > 0) {
         showLessonWords(data?.data);
-
-        document.getElementById("not-select-lesson").classList.add("hidden");
-        document.getElementById("no-word-lesson").classList.add("hidden");
     } else {
-        document.getElementById("word-section").classList.add("hidden");
-        document.getElementById("not-select-lesson").classList.add("hidden");
         isLoading(false);
         document.getElementById("no-word-lesson").classList.remove("hidden");
         return;
     }
-
-    isLoading(false);
 }
 
 const showLessonWords = (words) => {
@@ -79,9 +73,9 @@ const showLessonWords = (words) => {
     `;
 
         wordContainer.appendChild(wordCard);
+        isLoading(false);
         document.getElementById("word-section").classList.remove("hidden");
     }
-
 }
 
 const makeBtnInactive = () => {
@@ -143,8 +137,12 @@ const closeModal = () => {
 const isLoading = (status) => {
     if (status) {
         document.getElementById("loading-spinner").classList.remove("hidden")
+        document.getElementById("word-section").classList.add("hidden");
+        document.getElementById("no-word-lesson").classList.add("hidden");
+        document.getElementById("not-select-lesson").classList.add("hidden");
     } else {
         document.getElementById("loading-spinner").classList.add("hidden")
     }
 }
+
 getAllLessons();
