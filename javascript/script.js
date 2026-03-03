@@ -30,6 +30,7 @@ const showLessons = (lessons) => {
 
 const getLessonWords = async (id) => {
     isLoading(true);
+    document.getElementById("input-search").value = ""
 
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     const result = await fetch(url);
@@ -50,6 +51,13 @@ const getLessonWords = async (id) => {
 }
 
 const showLessonWords = (words) => {
+    if (words.length > 0) {
+        document.getElementById("word-section").classList.remove("hidden");
+    } else {
+        document.getElementById("no-word-lesson").classList.remove("hidden");
+        document.getElementById("word-section").classList.add("hidden");
+    }
+
     const wordContainer = document.getElementById("word-container");
     wordContainer.innerHTML = "";
 
@@ -140,9 +148,26 @@ const isLoading = (status) => {
         document.getElementById("word-section").classList.add("hidden");
         document.getElementById("no-word-lesson").classList.add("hidden");
         document.getElementById("not-select-lesson").classList.add("hidden");
+        document.getElementById("search-area").classList.add("hidden");
     } else {
         document.getElementById("loading-spinner").classList.add("hidden")
+        document.getElementById("search-area").classList.remove("hidden")
     }
+}
+
+const makeSearch = async () => {
+    document.getElementById("not-select-lesson").classList.add("hidden");
+    document.getElementById("no-word-lesson").classList.add("hidden");
+
+    const searchValue = document.getElementById("input-search").value.trim().toLowerCase();
+    const url = "https://openapi.programming-hero.com/api/words/all";
+
+    const result = await fetch(url);
+    const data = await result.json();
+
+    const filterWord = data.data.filter((word) => word.word.toLowerCase().includes(searchValue))
+
+    showLessonWords(filterWord)
 }
 
 getAllLessons();

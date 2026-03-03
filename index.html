@@ -128,6 +128,19 @@
             <div id="lesson-container" class="mt-5 flex flex-wrap gap-2 justify-center">
             </div>
 
+            <div id="search-area" class="mt-5 text-center">
+                <label class="input">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                            stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input onkeyup="makeSearch()" id="input-search" type="search" required placeholder="Search" />
+                </label>
+            </div>
+
             <div id="loading-spinner" class="flex justify-center my-10 hidden">
                 <span class="loading loading-spinner loading-xl"></span>
             </div>
@@ -141,7 +154,7 @@
             <div id="no-word-lesson"
                 class="mt-6 md:mt-10 bg-gray-100 text-center py-8 md:py-16 rounded-3xl font-bangla space-y-2 hidden">
                 <img class="mx-auto" src="./assets/alert-error.png" alt="alert-error">
-                <p class="text-xs">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <p class="text-xs">কোন Vocabulary পাওয়া যায়নি।</p>
                 <h3 class="text-2xl font-medium">নেক্সট Lesson এ যান</h3>
             </div>
 
