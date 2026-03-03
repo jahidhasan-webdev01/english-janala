@@ -21,10 +21,76 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .font-english {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .font-bangla {
+            font-family: "Hind Siliguri", sans-serif;
+        }
+    </style>
 </head>
 
-<body>
-    <h1>English Janala</h1>
+<body class="font-english">
+    <header class="bg-sky-50 border-b-2 border-gray-200">
+        <div class="w-11/12 mx-auto navbar ">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li>
+                        <button>
+                            <i class="fa-regular fa-circle-question"></i>
+                            FAQ</button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="fa-solid fa-book-open"></i></i>
+                            Learn</button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i></i>
+                            Logout</button>
+                    </li>
+                    </ul>
+                </div>
+                <a class="flex items-center gap-1 cursor-pointer">
+                    <span class="font-bold">English</span>
+                    <img src="./assets/logo.png" alt="logo">
+                    <span class="font-bangla">জানালা</span>
+                </a>
+            </div>
+            <div class="navbar-end hidden lg:flex">
+                <ul class="menu menu-horizontal pr-2 space-x-2">
+                    <li>
+                        <button class="btn btn-outline btn-primary">
+                            <i class="fa-regular fa-circle-question"></i>
+                            FAQ</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-book-open"></i></i>
+                            Learn</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i></i>
+                            Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
     <script src="./javascript/script.js"></script>
 </body>
