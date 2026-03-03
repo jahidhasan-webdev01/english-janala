@@ -124,8 +124,32 @@
         </h1>
 
         <!-- All lessons -->
-         <div id="lesson-container" class="mt-5 flex flex-wrap gap-2 justify-center">
-         </div>
+        <div>
+            <div id="lesson-container" class="mt-5 flex flex-wrap gap-2 justify-center">
+            </div>
+
+            <div id="not-select-lesson"
+                class="mt-6 md:mt-10 bg-gray-100 text-center py-8 md:py-16 rounded-3xl font-bangla space-y-2">
+                <p class="text-xs">আপনি এখনো কোন Lesson Select করেননি</p>
+                <h3 class="text-2xl font-medium">একটি Lesson Select করুন।</h3>
+            </div>
+
+            <div id="no-word-lesson"
+                class="mt-6 md:mt-10 bg-gray-100 text-center py-8 md:py-16 rounded-3xl font-bangla space-y-2 hidden">
+                <img class="mx-auto" src="./assets/alert-error.png" alt="alert-error">
+                <p class="text-xs">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <h3 class="text-2xl font-medium">নেক্সট Lesson এ যান</h3>
+            </div>
+
+
+            <div id="word-section" class="hidden">
+                <div id="word-container"
+                class="mt-6 md:mt-10 bg-gray-100 rounded-3xl py-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            </div>
+            </div>
+        </div>
+
     </section>
 
     <script src="./javascript/script.js"></script>
