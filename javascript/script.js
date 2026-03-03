@@ -1,4 +1,6 @@
 const getAllLessons = async () => {
+    isLoading(true);
+
     const url = "https://openapi.programming-hero.com/api/levels/all";
     const result = await fetch(url);
     const data = await result.json();
@@ -21,9 +23,13 @@ const showLessons = (lessons) => {
         `
         lessonContainer.appendChild(btnLesson)
     }
+
+    isLoading(false);
+    document.getElementById("not-select-lesson").classList.remove("hidden");
 }
 
 const getLessonWords = async (id) => {
+    isLoading(true);
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     const result = await fetch(url);
     const data = await result.json();
@@ -41,10 +47,12 @@ const getLessonWords = async (id) => {
     } else {
         document.getElementById("word-section").classList.add("hidden");
         document.getElementById("not-select-lesson").classList.add("hidden");
+        isLoading(false);
         document.getElementById("no-word-lesson").classList.remove("hidden");
         return;
     }
 
+    isLoading(false);
 }
 
 const showLessonWords = (words) => {
@@ -117,8 +125,8 @@ const showWordDetail = (word) => {
             <p class="font-bangla font-bold">সমার্থক শব্দ গুলো</p>
             <div class="flex flex-wrap gap-2">
                 ${word.synonyms.map(syn =>
-                    `<button class="btn bg-sky-100">${syn}</button>`
-                ).join("")}
+        `<button class="btn bg-sky-100">${syn}</button>`
+    ).join("")}
             </div>
         </div>
     </div>
@@ -132,4 +140,11 @@ const closeModal = () => {
     document.getElementById("word_modal").close();
 }
 
+const isLoading = (status) => {
+    if (status) {
+        document.getElementById("loading-spinner").classList.remove("hidden")
+    } else {
+        document.getElementById("loading-spinner").classList.add("hidden")
+    }
+}
 getAllLessons();
